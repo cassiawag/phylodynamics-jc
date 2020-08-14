@@ -16,9 +16,11 @@ pandoc -f markdown -t beamer week3.md --slide-level 2  -o slides.pdf
 
 ## Week 3 goals
 
-We'll be doing a whirlwind tour of the following three papers in order to paint a picture of the mathematics underlying phylodynamics methods.
+We'll be doing a whirlwind tour of the following paper in order to paint a picture of the mathematics underlying phylodynamics methods.
 
 - Phylodynamics of Infectious Disease Epidemics
+
+In future weeks, we'll expand upon on the methods discussed here using the following two papers.
 - Complex Population Dynamics and the Coalescent Under Neutrality
 - Inferring the Source of Transmission with Phylogenetic Data
 
