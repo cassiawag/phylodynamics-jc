@@ -116,7 +116,7 @@ Using the likelihood function defined above, the authors fit an SIR to a phyloge
 
 \begin{align}
 \frac{dS}{dt} = \mu - S^\alpha (\beta_1 I_1 + \beta_2 I_2) -\mu S\\
-\frac{dI_1}{dt} = S^\alpha (\beta_1 + I_1 + \beta_2 I_2) - \gamma_1 I_1 - \mu I_1\\
+\frac{dI_1}{dt} = S^\alpha (\beta_1 I_1 + \beta_2 I_2) - \gamma_1 I_1 - \mu I_1\\
 \frac{dI_2}{dt} = \gamma_1 I_1 - \gamma_2 I_2 - \mu I_2.
 \end{align}
 
