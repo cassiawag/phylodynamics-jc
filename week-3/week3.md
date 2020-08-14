@@ -1,13 +1,18 @@
 ---
-title: "Fitting compartment models using coalescent approaches."
-subtitle: "#phylodynamics-jc week 3"
+title: "#phylodynamics-jc week 3"
+subtitle: "Fitting compartment models using coalescent approaches."
 author: Marlin Figgins
 date: August 13, 2020
 theme: Madrid
-colortheme: dolphin
+colortheme: lily
 fontfamily: noto-sans
 fontsize: 10pt
 ---
+
+<!--Compile this presentation with pandoc using:
+```
+pandoc -f markdown -t beamer week3.md --slide-level 2  -o slides.pdf
+``` -->
 
 ## Week 3 goals
 
@@ -21,7 +26,7 @@ We'll be doing a whirlwind tour of the following three papers in order to paint 
 
 ## Takeaways
 
-*We present a formalism for unifying the inference of infected population sizes from genetic sequences and mathematical models of infectious disease in populations.*
+*"We present a formalism for unifying the inference of infected population sizes from genetic sequences and mathematical models of infectious disease in populations."*
 
 In practice, we are able to fit epidemiological models to a phylogeny of viral sequences and make inferences regarding the disease dynamics.
 
@@ -52,8 +57,6 @@ $$
 p_C =  {n\choose 2} / {{\left|I\right|}\choose 2}  = \frac{n(n-1)}{\left| I \right| (\left| I \right| - 1)}.
 $$
 
-TO-DO: FIGURE ON $k$ lineages merging
-
 ## Probability of sampled ancestors
 
 If we define a function $A(t, T)$ which describes the fraction of the individuals at time $t$ with sampled progeny at $T$. We'll use this definition alongside our early computation to find the probability of a transmission causing us to observe a coalescent event.
@@ -71,19 +74,21 @@ $$
 
 ## Distribution of coalescent events
 
-Using this ancestor equations allows us to fit epidemic models to a fixed genealogy with no uncertainty. This can be extended to allow for uncertainty in branching times.
+<!---Using this ancestor equations allows us to fit epidemic models to a fixed genealogy with no uncertainty. This can be extended to allow for uncertainty in branching times.--->
 
 The ancestor function allows us to define the fraction of coalescent events which have occurred by time $\tau$ between times $t$ and $T$ as
 
 $$
-F(\tau) = \frac{A(T,T) - A(\tau, T)}{A(T,T) - A(t,T)}.
+\mathbb{P}(t<\tau<T) = F(\tau)  = \frac{A(T,T) - A(\tau, T)}{A(T,T) - A(t,T)}.
 $$
 
-This serves as a cumulative distribution function for the coalescent times. Differentiating this allows us to find the probability density function
+This forms a cumulative distribution function of coalescent times. Differentiating gives the corresponding probability density function
 
 $$
 f(\tau) = -\frac{dA}{dt} (\tau) \cdot \frac{1}{A(T,T) - A(t,T)}.
 $$
+
+![Empirical distributions of coalescence times](figs/empirical-distributions.png)
 
 ## Fitting epidemic models to sequence data
 
@@ -94,34 +99,26 @@ Suppose we're given branching times $t_1, t_2, \ldots, t_{n-1}$ for a phylogeny 
 &= \sum_{i = 1}^{n-1} \log \left(-\frac{dA}{dt}(t_i) \right) -(n-1)\log(A(T,T) - A(t,T))
 \end{align}
 
-# Volz 2012: Complex Population Dynamics and the Coalescent Under Neutrality
+<!---Note: there appears to be an error in the original equation. $\frac{dA}{dt}$ takes only a single argument--->
 
-## Takeaways
+## Fitting epidemic models to sequence data
 
-*A coalescent model is developed for a large class of populations such that the demographic history is described by a deterministic nonlinear dynamical system of arbitrary dimension. This class of demographic model differs from those typically used in population genetics. Birth and death rates are not fixed, and no assumptions are made regarding the fraction of the population sampled.*
+![Comparison of SIR approach to skyline.](figs/skyline-v-sir-error.png)
 
-Approaching this from the perspective of a birth-death process. Useful for generating lineages.
+## Application: Fitting to HIV-1 sequences
 
-As shown in Volz 2009, the rate of of coalescence for two extant lineages is:
+Using the likelihood function defined above, the authors fit an SIR to a phylogeny of 55 HIV-1 sequences sampled in 1993. This involved using modified infection dynamics:
 
-$$
-\lambda_2(t) = \frac{2 f(t)}{I(t)^2}
-$$
+\begin{align}
+\frac{dS}{dt} = \mu - S^\alpha (\beta_1 + I_1 + \beta_2 I_2) -\mu S\\
+\frac{dI_1}{dt} = S^\alpha (\beta_1 + I_1 + \beta_2 I_2) - \gamma_1 I_1 - \mu I_1\\
+\frac{dI_2}{dt} = \gamma_1 I_1 - \gamma_2 I_2 - \mu I_2.
+\end{align}
 
-In the case of the simple SIR, this reduces to the familiar
+Here, $\beta_{\cdot}, \gamma_{\cdot}$ are transmission rates and recovery rates respectively. A subscript of $1$ refers to those individuals with an acute infection and subscript $2$ refers to chronic infection.
 
-$$
-\lambda_2(t) = \frac{2\beta S(t)}{I(t)}
-$$
+<!--- Note: there appears to be an error in the original equation.--->
 
-## Varying birthrate: Skyline estimates of effective population size will be biased for true population size
+## Application: Fitting to HIV-1 sequences.
 
-This is section "The effective number of infections"
-
-## Calculating the likelihood of a genealogy condition on f(s) and I(s)
-
-Test
-
-## We can...
-
-Test
+![HIV prevelance and model fit.](figs/hiv-model-prev.png)
