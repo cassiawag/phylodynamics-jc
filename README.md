@@ -5,4 +5,4 @@ Week 1: [Virus genomes reveal factors that spread and sustained the Ebola epidem
 
 Week 2: [Reconciling Phylodynamics with Epidemiology: The Case of Dengue Virus in Southern Vietnam](https://academic.oup.com/mbe/article/31/2/258/997581)
 
-Week 3: [Phylodynamics of Infectious Disease Epidemics](https://www.genetics.org/content/183/4/1421.short) and [Complex Population Dynamics and the Coalescent Under Neutrality](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3249372/)
+Week 3: [Phylodynamics of Infectious Disease Epidemics](https://www.genetics.org/content/183/4/1421.short)
