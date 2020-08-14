@@ -21,6 +21,7 @@ We'll be doing a whirlwind tour of the following paper in order to paint a pictu
 - Phylodynamics of Infectious Disease Epidemics
 
 In future weeks, we'll expand upon on the methods discussed here using the following two papers.
+
 - Complex Population Dynamics and the Coalescent Under Neutrality
 - Inferring the Source of Transmission with Phylogenetic Data
 
@@ -53,11 +54,12 @@ where $S$, $I$, $R$ denote the fraction of the population which are susceptible,
 
 ## Probability of observing coalescence
 
-Given a population of size $N$ with $k$ lineages, the probability that these lineages merge is well approximated by ${k\choose 2} = \frac{k(k - 1)}{2}$ if $N$ is large relative to $k$. Therefore, given a coalescent event occurs between the infected individuals, the probability of observing this event in the $n$ sampled lineages is given by
+Given a population of size $N$ with $k$ lineages, the probability that these lineages merge is well approximated by ${k\choose 2} = \frac{k(k - 1)}{2}$ if $N$ is large relative to $k$. Therefore, given a coalescent event occurs between the infected individuals, the probability of observing this event in the $n$ sampled individuals is given by
 
 $$
 p_C =  {n\choose 2} / {{\left|I\right|}\choose 2}  = \frac{n(n-1)}{\left| I \right| (\left| I \right| - 1)}.
 $$
+
 
 ## Probability of sampled ancestors
 
@@ -73,6 +75,7 @@ Therefore, we can compute the function $A(t,T)$ using the following ODE:
 $$
 -\frac{dA}{dt} = -\beta S I \cdot \left( \frac{A(t,T)}{I(t)} \right)^2.
 $$
+
 
 ## Distribution of coalescent events
 
@@ -112,7 +115,7 @@ Suppose we're given branching times $t_1, t_2, \ldots, t_{n-1}$ for a phylogeny 
 Using the likelihood function defined above, the authors fit an SIR to a phylogeny of 55 HIV-1 sequences sampled in 1993. This involved using modified infection dynamics:
 
 \begin{align}
-\frac{dS}{dt} = \mu - S^\alpha (\beta_1 + I_1 + \beta_2 I_2) -\mu S\\
+\frac{dS}{dt} = \mu - S^\alpha (\beta_1 I_1 + \beta_2 I_2) -\mu S\\
 \frac{dI_1}{dt} = S^\alpha (\beta_1 + I_1 + \beta_2 I_2) - \gamma_1 I_1 - \mu I_1\\
 \frac{dI_2}{dt} = \gamma_1 I_1 - \gamma_2 I_2 - \mu I_2.
 \end{align}
@@ -123,4 +126,4 @@ Here, $\beta_{\cdot}, \gamma_{\cdot}$ are transmission rates and recovery rates 
 
 ## Application: Fitting to HIV-1 sequences.
 
-![HIV prevelance and model fit.](figs/hiv-model-prev.png)
+![HIV prevalence and model fit.](figs/hiv-model-prev.png)
