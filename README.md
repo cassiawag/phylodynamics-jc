@@ -7,4 +7,4 @@ Week 2: [Reconciling Phylodynamics with Epidemiology: The Case of Dengue Virus i
 
 Week 3: [Phylodynamics of Infectious Disease Epidemics](https://www.genetics.org/content/183/4/1421.short) [[slides](week-3/slides.pdf)]
 
-Week 4: [Evaluating the effects of SARS-CoV-2 Spike mutation D614G on transmissibility and pathogenicity](https://www.medrxiv.org/content/10.1101/2020.07.31.20166082v1.full.pdf+html)
+Week 4: [Evaluating the effects of SARS-CoV-2 Spike mutation D614G on transmissibility and pathogenicity](https://www.medrxiv.org/content/10.1101/2020.07.31.20166082v1.full.pdf+html) [[slides](https://docs.google.com/presentation/d/1WKupIXoRd_LePDaB1g7Sh_UEWytH7LWeOQvEmLAcb4A/edit?usp=sharing)]
